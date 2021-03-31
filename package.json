@@ -8,8 +8,8 @@
     "start": "node index.js",
     "start-dev": "nodemon --watch index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["dogehouse", "bot", "node"],
+  "author": "Ernesto Barracchia",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
