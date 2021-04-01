@@ -1,9 +1,9 @@
 {
-    "defaultRoom": "a58fe941-b158-40b6-9a10-18a331411bdc",
+    "defaultRoom": "7a6e2704-daf6-495c-bad9-e65912f256dd",
     "botName": "tuco_bot",
     "prefix": "!",
     "ROOM_EVENTS": {
-        "PUBLIC_WELCOME": false, 
+        "PUBLIC_WELCOME": true, 
         "PRIVATE_WELCOME": false
     }
 }

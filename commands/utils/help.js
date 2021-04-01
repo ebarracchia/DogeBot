@@ -5,7 +5,7 @@ module.exports = {
     name: 'help',
     description: 'List all of my commands or info about a specific command.',
     aliases: ['commands'],
-    execute(data, text, args) {
+    execute(data, args) {
         const response = []
         if(!args.length) {
             response.push('Here\'s a list of all my commands:');
