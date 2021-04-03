@@ -51,7 +51,7 @@ app.on(EVENT.NEW_CHAT_MESSAGE, async (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const commandName = args.shift().toLowerCase();
+  const commandName = args.shift();
 
   const command = commands.get(commandName) || commands.get(getByValue(commands, commandName));
   const data = {commands: commands, app: app, message: message};
@@ -67,7 +67,6 @@ app.on(EVENT.NEW_CHAT_MESSAGE, async (message) => {
 
 app.on(EVENT.BOT_JOINED_ROOM, async ({room}) => {
   console.log("EVENT.BOT_JOINED_ROOM");
-  console.log(room);
   if (room) {
     console.log({Room: room.name, VoiceServer: room.voiceServer})
     app.bot.sendMessage(`Connected to Room: ${room.name}`); 
