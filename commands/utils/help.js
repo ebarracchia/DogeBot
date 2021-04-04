@@ -7,7 +7,7 @@ module.exports = {
     aliases: ['commands'],
     execute(data, args) {
         const response = []
-        if(!args.length) {
+        if (!args.length) {
             response.push('Here\'s a list of all my commands:');
             data?.commands?.forEach( item => response.push(item.name))
             response.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);

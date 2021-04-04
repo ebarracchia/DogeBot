@@ -2,19 +2,17 @@ require("dotenv").config(); // Get your bot tokens
 
 const fs = require("fs");
 const { Client, EVENT } = require("dogehouse.js");
-const { defaultRoom, botName, prefix, ROOM_EVENTS } = require('./config.json');
+const { defaultRoom, prefix } = require('./config.json');
 const getByValue = require('./common/getCommandAliases.js');
 
 // Handlers
 const { commands } = require('./commands.js');
 const { events } = require('./events.js');
 
+// Connect to dogehouse
 const token = process.env.DOGEHOUSE_TOKEN;
 const refreshToken = process.env.DOGEHOUSE_REFRESH_TOKEN;
-
 const app = new Client();
-
-// Connect to dogehouse
 app.connect(token, refreshToken).then(async () => {
   console.log("Bot connected.");
   app.rooms.join(defaultRoom); // This will allow you to join a room.
