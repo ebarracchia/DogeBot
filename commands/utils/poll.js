@@ -4,9 +4,18 @@ let poll = {who: []};
 
 const getPollInfo = (startText = '') => {
     let resp = startText + `Current poll --> ${poll.name ? poll.name : '[No name yet]'} | ${poll.started ? 'Started' : 'Not started'} |`;
+    let total = 0;
+    // Get total
     Object.keys(poll).forEach(element => {
-        if (element != 'name' && element != 'started')
-            resp += '  ' + element + "=" + poll[element];
+        if (element != 'name' && element != 'started' && element != 'who')
+            total += poll[element];
+    });
+    // Get poll votes
+    Object.keys(poll).forEach(element => {
+        if (element != 'name' && element != 'started' && element != 'who') {
+            const percentage = (element, ((poll[element]/total)*100).toFixed(1));
+            resp += '  ' + element + "=" + poll[element] + " " + percentage.toString() + "%";
+        }
     });
     return resp;
 }
@@ -14,7 +23,7 @@ const getPollInfo = (startText = '') => {
 module.exports = {
     name: 'poll',
     description: 'manage a poll',
-    usage: '[vote / command (NAME / START / END)]',
+    usage: '[vote / command (NAME / START / END / WHO)]',
     execute(data, args) {
         let msgObj = null;
         if (!args.length) {
@@ -38,6 +47,10 @@ module.exports = {
                     msgObj = [`Poll ended`];
                     break;
                 }
+                case 'WHO': {
+                    msgObj = [getPollInfo(`Who: [${poll.who}] - `)];
+                    break;
+                }
             default:
                 if (poll.started) {
                     if (poll.hasOwnProperty(command))
@@ -54,6 +67,5 @@ module.exports = {
         }
         if (msgObj)
             data.message.reply(msgObj, {whispered: false, mentionUser: true}).then()
-        console.log(poll);
     },
 };

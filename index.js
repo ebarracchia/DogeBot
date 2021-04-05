@@ -1,6 +1,5 @@
 require("dotenv").config(); // Get your bot tokens
 
-const fs = require("fs");
 const { Client, EVENT } = require("dogehouse.js");
 const { defaultRoom, prefix } = require('./config.json');
 const getByValue = require('./common/getCommandAliases.js');
@@ -43,7 +42,7 @@ app.on(EVENT.BOT_JOINED_ROOM, async ({room}) => {
   console.log("EVENT.BOT_JOINED_ROOM");
   if (room) {
     console.log({Room: room.name, VoiceServer: room.voiceServer})
-    app.bot.sendMessage(`Connected to Room: ${room.name}`); 
+    app.bot.sendMessage(`Connected to Room: ${room.name} | My commands --> ${prefix}help`); 
   }
 }); 
 
