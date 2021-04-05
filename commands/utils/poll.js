@@ -38,13 +38,13 @@ module.exports = {
                 }
                 case 'START': {
                     poll.started = true;
-                    msgObj = [`Poll started!!`];
+                    msgObj = [getPollInfo(`Poll started!! - `)];
                     break;
                 }
                 case 'END': {
                     const newPoll = {who: []};
                     poll = newPoll;
-                    msgObj = [`Poll ended`];
+                    msgObj = [getPollInfo(`Poll ended!! - Who: [${poll.who}] - `)];
                     break;
                 }
                 case 'WHO': {
