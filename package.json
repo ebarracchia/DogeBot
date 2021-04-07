@@ -8,7 +8,11 @@
     "start": "node index.js",
     "start-dev": "nodemon --watch index.js"
   },
-  "keywords": ["dogehouse", "bot", "node"],
+  "keywords": [
+    "dogehouse",
+    "bot",
+    "node"
+  ],
   "author": "Ernesto Barracchia",
   "license": "ISC",
   "dependencies": {
@@ -16,7 +20,8 @@
     "dogehouse.js": "^2.0.2",
     "dotenv": "^8.2.0",
     "mathjs": "^9.3.0",
-    "prompts": "^2.4.0"
+    "prompts": "^2.4.0",
+    "youtube-search-api": "^1.0.10"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
